@@ -50,4 +50,14 @@ public class Metodos {
 
     }
 
+    public static void trycatch() {
+        try {
+            System.out.println("Resultado: ");
+        } catch (ArithmeticException e) {
+            System.out.println("Error");
+        } finally {
+            System.out.println("Bloque finally ejecutado.");
+
+        }
+    }
 }
