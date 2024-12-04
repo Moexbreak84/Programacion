@@ -25,7 +25,11 @@ package Proyectos.Tarea_tema4_cadenas.src;
 
 public class ejercicio1 {
     public static void main(String[] args) {
-        String entrada = "AEGYPTOS";
-        String resultados;
+        String[] contraseña = new String[];
+        String contraseña[] = {"Paella", "Vampiro", "CASANDRA", "DOdo", "GABOSVE", "AEGYPTOS", "ISISisis"};
+        String resultados[contraseña.length];
+        for(int i = 0; i < entrada.length; i++){
+
+        }
     }
 }
