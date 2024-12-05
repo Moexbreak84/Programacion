@@ -25,13 +25,13 @@ package Proyectos.Tarea_tema4_cadenas.src;
 
 public class ejercicio1 {
     public static void main(String[] args) {
-        String[] contraseña = { "Paella", "Vampiro", "CASANDRA", "DOdo", "GABOSVE", "AEGYPTOS", "ISISisis" };
-        String[] resultados = new String[contraseña.length];
-        for (int i = 0; i < contraseña.length; i++) {
-            resultados[i] = metodos.ofuscacion(contraseña[i]);
+        String[] contrasena = { "Paella", "Vampiro", "CASANDRA", "DOdo", "GABOSVE", "AEGYPTOS", "ISISisis" };
+        String[] resultados = new String[contrasena.length];
+        for (int i = 0; i < contrasena.length; i++) {
+            resultados[i] = metodos.ofuscacion(contrasena[i]);
         }
-        for (int i = 0; i < contraseña.length; i++) {
-            System.out.println(contraseña[i] + "->" + resultados[i]);
+        for (int i = 0; i < contrasena.length; i++) {
+            System.out.println(i + 1 + ". " + contrasena[i] + " " + "->" + " " + resultados[i]);
         }
     }
 }

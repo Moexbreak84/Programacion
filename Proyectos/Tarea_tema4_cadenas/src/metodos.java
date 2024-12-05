@@ -3,76 +3,78 @@ package Proyectos.Tarea_tema4_cadenas.src;
 import Proyectos.Tarea_tema4_cadenas.p_cadenas;
 
 public class metodos {
-    public static String ofuscacion(String contraseña) {
+    public static String ofuscacion(String contrasena) {
         StringBuilder ofuscacion = new StringBuilder();
-        for (char pass : ofuscacion.toCharArray()) {
+        String salida = "";
+        for (char pass : contrasena.toCharArray()) {
             switch (pass) {
                 case 'A':
-                    ofuscacion.append('4');
+                    salida = salida + "4";
                     break;
                 case 'a':
-                    ofuscacion.append('@');
+                    salida = salida + '@';
                     break;
                 case 'b':
-                    ofuscacion.append('8');
+                    salida = salida + '8';
                     break;
                 case 'C':
-                    ofuscacion.append('<');
+                    salida = salida + "((";
                     break;
                 case 'D':
-                    ofuscacion.append('>');
+                    salida = salida + "))";
                     break;
                 case 'E':
-                    ofuscacion.append('3');
+                    salida = salida + '3';
                     break;
                 case 'e':
-                    ofuscacion.append('?');
+                    salida = salida + '?';
                     break;
                 case 'G':
-                    ofuscacion.append('6');
+                    salida = salida + '6';
                     break;
                 case 'H':
-                    ofuscacion.append('#');
+                    salida = salida + '#';
                     break;
                 case 'I':
-                    ofuscacion.append('|');
+                    salida = salida + '|';
                     break;
                 case 'i':
-                    ofuscacion.append('1');
+                    salida = salida + '1';
                     break;
                 case 'l':
-                    ofuscacion.append('!');
+                    salida = salida + '!';
                     break;
                 case 'O':
-                    ofuscacion.append('0');
+                    salida = salida + '0';
                     break;
                 case 'o':
-                    ofuscacion.append('*');
+                    salida = salida + '*';
                     break;
                 case 'P':
-                    ofuscacion.append('9');
+                    salida = salida + '9';
                     break;
                 case 'S':
-                    ofuscacion.append('$');
+                    salida = salida + "$$";
                     break;
                 case 's':
-                    ofuscacion.append('2');
+                    salida = salida + '2';
                     break;
                 case 'T':
-                    ofuscacion.append('7');
+                    salida = salida + '7';
                     break;
                 case 't':
-                    ofuscacion.append('+');
+                    salida = salida + '+';
                     break;
                 case 'V':
-                    ofuscacion.append('/');
+                    salida = salida + "\\/";
                     break;
                 case 'Y':
-                    ofuscacion.append('&');
+                    salida = salida + '&';
                     break;
                 default:
-                    ofuscacion.toString();
+                    salida = salida + pass;
             }
         }
+        return salida;
     }
 }

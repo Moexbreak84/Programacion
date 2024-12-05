@@ -4,14 +4,24 @@ import aguadulce.Utilidades;
 
 public class ejercicio17 {
     public static void main(String[] args) {
+        boolean encontrado = false;
         int aleatorio[] = new int[10];
-        System.out.println("estos son los numeros del array");
+        int buscador = 0;
         for (int i = 0; i < aleatorio.length; i++) {
             aleatorio[i] = Utilidades.numAleatorio(1, 20);
-            System.out.println(aleatorio[i] + " ");
-            int buscador = Metodos.leerEntero("introduce el numero que deseas saber la posicion ");
-            if (true) {
-                aleatorio[10] = buscador;
+            System.out.print(aleatorio[i] + " ");
+        }
+        buscador = Metodos.leerEntero("introduce el numero que deseas saber la posicion ");
+        for (int i = 0; i < aleatorio.length; i++) {
+            if (buscador == aleatorio[i]) {
+                System.out.println(" La posición del número es " + i);
+                encontrado = true;
+            }
+        }
+        if (encontrado == false) {
+            System.out.println("estos son los numeros del array");
+            for (int i = 0; i < aleatorio.length; i++) {
+                System.out.print(aleatorio[i] + " ");
             }
         }
     }
