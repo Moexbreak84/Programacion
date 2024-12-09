@@ -5,6 +5,32 @@ Hay que tener en cuenta que:
     • Se debe mostrar por pantalla el número de pila y la cantidad de cerillas que tiene mediante barras verticales (|) y añadiendo un espacio entre cada 1.
     • El PC debe elegir de forma aleatoria una pila y una cantidad de cerillas.
     • Se debe usar los métodos de la clase Utilidades que se encuentra en la biblioteca aguadulce.*/
-public class ejercicio18 {
 
+import java.util.Scanner;
+
+import aguadulce.Utilidades;
+
+public class ejercicio18 {
+    public static void main(String[] args) {
+        int[] pilas = new int[3];
+        Scanner sc = new Scanner(System.in);
+        boolean mi_turno = true;
+        for (int i = 0; i < pilas.length; i++) {
+            pilas[i] = Utilidades.numAleatorio(1, 10);
+        }
+        while (sumarpilas(pilas) > 0) {
+            mostrarpilas(pilas);
+            if (mi_turno) {
+                mi_turno(pilas, sc);
+            } else {
+                turnoPC(pilas);
+            }
+            mi_turno = !mi_turno;
+        }
+        if (mi_turno) {
+            System.out.println("el ordenador a ganado ");
+        } else {
+            System.out.println("has ganado");
+        }
+    }
 }
