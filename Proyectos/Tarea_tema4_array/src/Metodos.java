@@ -45,23 +45,4 @@ public class Metodos {
     public static void cerrarSc() {
         sc.close();
     }
-
-    public static int multiplicacion(int numeros, int multi) {
-        int resultado;
-        resultado = numeros * multi;
-        return resultado;
-
-    }
-
-    public static void trycatch() {
-        try {
-            System.out.println("Resultado: ");
-        } catch (ArithmeticException e) {
-            System.out.println("Error");
-        } finally {
-            System.out.println("Bloque finally ejecutado.");
-
-        }
-    }
-
 }
