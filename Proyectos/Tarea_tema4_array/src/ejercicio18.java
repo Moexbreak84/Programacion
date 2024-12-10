@@ -18,15 +18,7 @@ public class ejercicio18 {
         for (int i = 0; i < pilas.length; i++) {
             pilas[i] = Utilidades.numAleatorio(1, 10);
         }
-        while (sumarpilas(pilas) > 0) {
-            mostrarpilas(pilas);
-            if (mi_turno) {
-                mi_turno(pilas, sc);
-            } else {
-                turnoPC(pilas);
-            }
-            mi_turno = !mi_turno;
-        }
+
         if (mi_turno) {
             System.out.println("el ordenador a ganado ");
         } else {
