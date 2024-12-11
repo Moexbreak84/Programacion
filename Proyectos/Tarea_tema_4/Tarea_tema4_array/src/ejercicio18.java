@@ -14,7 +14,7 @@ import aguadulce.Utilidades;
 
 public class ejercicio18 {
     public static int[] pilas = new int[3];
-
+    public static Scanner sc = new Scanner(System.in);
     public static boolean mi_turno = true;
 
     public static void main(String[] args) {
@@ -40,7 +40,6 @@ public class ejercicio18 {
     }
 
     public static int leerEntero(String mensaje) {
-        Scanner sc = new Scanner(System.in);
         int numero = 0;
         boolean error = true;
         do {
@@ -58,7 +57,6 @@ public class ejercicio18 {
     }
 
     public static void turno_yo() {
-        Scanner sc = new Scanner(System.in);
         int elijePila, cantidad;
         do {
             System.out.print("se debe elegir una pila entre 1 - 3: ");
@@ -71,8 +69,8 @@ public class ejercicio18 {
         int cantidad;
 
         do {
-            elijePila = Utilidades.numAleatorio(1, 3); // Elegir una pila aleatoria
-        } while (pilas[elijePila] == 0); // Asegurarse de que la pila no esté vacía
+            elijePila = Utilidades.numAleatorio(1, 3);
+        } while (pilas[elijePila] == 0);
 
         cantidad = Utilidades.numAleatorio(pilas[elijePila]) + 1;
         System.out.println("El PC retira " + cantidad + " cerillas de la pila " + (elijePila + 1));
