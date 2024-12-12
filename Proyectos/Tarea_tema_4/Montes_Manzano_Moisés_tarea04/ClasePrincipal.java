@@ -5,6 +5,8 @@ public class ClasePrincipal {
     public static int acumulador1 = 1;
     public static int acumulador2 = 0;
     public static int siguiente = 1;
+    public static final String ANSI_RED = "\u001B[31m";
+    public static final String ANSI_RESET = "\u001B[0m";
 
     public static void main(String[] args) {
         ClasePrincipal.fibonacci();
@@ -25,15 +27,21 @@ public class ClasePrincipal {
                     acumulador2 = acumulador1;
                     acumulador1 = serieF[i][j];
                 }
-                System.out.print(ANSI_RED + serieF[i][j] + " " + ANSI_RESET);
+                
+            }
+            System.out.println();
+        }
+        for (int i = 0; i < serieF.length; i++) {
+            for (int j = 0; j < serieF[i].length; j++) {
+                if (i+j / 2 == 0){
+                   
+
+                } 
+                System.out.print(serieF[i][j] + " ");
                 System.out.print("");
             }
             System.out.println();
         }
-
-    }
-
-    public static final String ANSI_RED = "\u001B[31m";
-    public static final String ANSI_RESET = "\u001B[0m";
+    
 
 }
