@@ -27,21 +27,21 @@ public class ClasePrincipal {
                     acumulador2 = acumulador1;
                     acumulador1 = serieF[i][j];
                 }
-                
+
             }
             System.out.println();
         }
         for (int i = 0; i < serieF.length; i++) {
             for (int j = 0; j < serieF[i].length; j++) {
-                if (i+j / 2 == 0){
-                   
+                if (i + j % 2 == 0) {
+                    System.out.printf("lu001b]31m%d lu001b]0m", serieF[i][j]);
 
-                } 
-                System.out.print(serieF[i][j] + " ");
-                System.out.print("");
+                } else {
+                    System.out.printf("%d ", serieF[i][j] + " ");
+                    System.out.print("");
+                }
             }
             System.out.println();
         }
-    
-
+    }
 }
