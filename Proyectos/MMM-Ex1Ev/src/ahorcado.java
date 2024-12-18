@@ -5,7 +5,7 @@ import aguadulce.*;
 
 public class ahorcado {
     private static int NUM_MAX_ERRORES = 10;
-    private static String palabras[][] = new String[2][10]={{"Ajardinaba"},{"Bobinadora"},{"Cuadratura"},{"Daltonismo"},{"Equilibrar"},{"Fiabilidad"},{"Gigantillo"},{"Habichuela"},{"Iconología"},{"jubilacion"}};
+    private static String palabras[][] = new String = {{"Ajardinaba"},{"Bobinadora"},{"Cuadratura"},{"Daltonismo"},{"Equilibrar"},{"Fiabilidad"},{"Gigantillo"},{"Habichuela"},{"Iconología"},{"jubilacion"}};
     private static char respuesta[] = new char[10];
     private static String palabraBuscada;
     private static int fallos;
@@ -85,6 +85,9 @@ public class ahorcado {
     }
 
     private static void mostrarEstado() {
+        for( char c : respuesta)
+            System.out.print(c);
+        System.out.print();
 
     }
 
