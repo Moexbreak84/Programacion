@@ -53,4 +53,25 @@ public class Bombilla {
         return mensaje;
 
     }
+    /**
+     * 
+     * @throws IllegalStateException
+     */
+    public void encender()throws IllegalStateException {
+        if(!this.estado){
+            this.estado = true;
+            this.vecesEncedida++;
+            this.bombillasEncendidas++;
+        }else{
+            throw new IllegalStateException("intentando encender bombilla ya encendida");
+        }
+    }
+    public void apagar () throws IllegalStateException  {
+        if ( !this.estado ) {
+          throw new IllegalStateException ("Intentando apagar bombilla apagada");
+        } else {
+          this.estado= false; 
+          Bombilla.bombillasEncendidas--; 
+      }
+    }
 }
