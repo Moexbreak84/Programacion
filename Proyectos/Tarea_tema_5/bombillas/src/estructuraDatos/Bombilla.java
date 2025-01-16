@@ -1,77 +1,93 @@
 package estructuraDatos;
 
 public class Bombilla {
+    private static final double MAX_POTENCIA = 200.00;
+    private static final double MIN_POTENCIA = 10.00;
+    private static final double DEF_POTENCIA = 60.00;
+    private final double potencia;
     private static int cantidadBombillas;
     private static int bombillasEncendidas;
     private boolean estado;
     private int vecesEncedida;
     private static final boolean ESTADO_POR_DEFECTO = false;
-    
-    public Bombilla (boolean estadoInicial){
+
+    public Bombilla(boolean estadoInicial) {
         this.estado = estadoInicial;
-        if(estadoInicial == true){
+        if (estadoInicial == true) {
             vecesEncedida = 1;
             bombillasEncendidas++;
-        }else{
+        } else {
             vecesEncedida = 0;
         }
         cantidadBombillas++;
     }
+
     public Bombilla() {
         this.estado = false;
         vecesEncedida = 0;
         cantidadBombillas++;
     }
-    public boolean getEstado(){
+
+    public boolean getEstado() {
         return this.estado;
     }
-    public int vecesEncedida(){
+
+    public int vecesEncedida() {
         return this.vecesEncedida;
     }
-    public static int getCantidadBombillas(){
+
+    public static int getCantidadBombillas() {
         return Bombilla.cantidadBombillas;
     }
-    public static int getbombillasEncendidas(){
+
+    public static int getbombillasEncendidas() {
         return Bombilla.bombillasEncendidas;
     }
+
     @Override
-    public String toString(){
+    public String toString() {
         String mensaje;
 
-        if(estado){
+        if (estado) {
             mensaje = "Bombilla encendida. ";
-        }else{
+        } else {
             mensaje = "Bombilla apagada. ";
         }
         mensaje += "Se ha encendido " + vecesEncedida;
 
-        if(vecesEncedida == 1){
+        if (vecesEncedida == 1) {
             mensaje += "vez.";
-        }else{
+        } else {
             mensaje += "veces.";
         }
         return mensaje;
 
     }
+
     /**
      * 
      * @throws IllegalStateException
      */
-    public void encender()throws IllegalStateException {
-        if(!this.estado){
+    public void encender() throws IllegalStateException {
+        if (!this.estado) {
             this.estado = true;
             this.vecesEncedida++;
             this.bombillasEncendidas++;
-        }else{
+        } else {
             throw new IllegalStateException("intentando encender bombilla ya encendida");
         }
     }
-    public void apagar () throws IllegalStateException  {
-        if ( !this.estado ) {
-          throw new IllegalStateException ("Intentando apagar bombilla apagada");
+
+    public void apagar() throws IllegalStateException {
+        if (!this.estado) {
+            throw new IllegalStateException("Intentando apagar bombilla apagada");
         } else {
-          this.estado= false; 
-          Bombilla.bombillasEncendidas--; 
-      }
+            this.estado = false;
+            Bombilla.bombillasEncendidas--;
+        }
+    }
+
+    public void conmutar() throws IllegalStateException {
+        
     }
 }
