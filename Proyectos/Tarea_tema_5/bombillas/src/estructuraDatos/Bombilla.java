@@ -11,6 +11,7 @@ public class Bombilla {
     private int vecesEncedida;
     private static final boolean ESTADO_POR_DEFECTO = false;
 
+
     public Bombilla(boolean estadoInicial, double potencia) {
         this.potencia = potencia;
         this.estado = estadoInicial;
@@ -29,6 +30,8 @@ public class Bombilla {
         vecesEncedida = 0;
         cantidadBombillas++;
     }
+
+
 
     public boolean getEstado() {
         return this.estado;
