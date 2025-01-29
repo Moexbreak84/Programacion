@@ -9,16 +9,10 @@ public class Ticket {
     private LocalTime usado;
     private final int TIQUET_MAXIMO = 99999999;
     private String ticket;
-    private static int acumulador;
+    private static int acumulador = 0;
     public Ticket() {
-        for(int i = 0; i <= TIQUET_MAXIMO; i++){
-            ticket = ANIO_ACTUAL - i;
-            
-        }
-        return ticket;
-    }
-    public static Ticket(String){
 
     }
+    
     
 }
