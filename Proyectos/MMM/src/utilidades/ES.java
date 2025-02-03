@@ -21,7 +21,11 @@ public class ES {
     public static int leerEntero(String codigo, int min, int max){
         int n;
         do{
+            try{
             n = leerEntero(codigo);
+            }catch(InputException e){
+
+            }
             if(n < min || n > max){
                 System.out.println("Error...");
             }
