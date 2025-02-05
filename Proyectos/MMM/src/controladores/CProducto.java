@@ -56,7 +56,7 @@ public class CProducto {
 
     }
 
-    public static boolean agregarProducto(String codigo, String nombre, Sting descripcion, int unidades,
+    public static boolean agregarProducto(String codigo, String nombre, String descripcion, int unidades,
             float precioCompra) {
 
     }
