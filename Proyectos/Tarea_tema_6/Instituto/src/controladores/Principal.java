@@ -1,5 +1,6 @@
-public class App {
+package controladores;
+public class Principal {
     public static void main(String[] args) throws Exception {
-        System.out.println("Hello, World!");
+     
     }
 }
