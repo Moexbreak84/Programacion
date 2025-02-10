@@ -8,6 +8,7 @@ public class ES {
 
     public static int leerEntero() {
         do {
+            System.out.print("Introduce un número entero: ");
             try {
                 return sc.nextInt();
             } catch (InputMismatchException e) {
@@ -17,19 +18,21 @@ public class ES {
         } while (true);
     }
 
-    public static int leerEntero(String texto) {
-        System.out.println("introduce un numero entero ");
-        return leerEntero();
+    public static String leerCadena() {
+        System.out.print("Introduce una cadena de texto: ");
+        String cadena = sc.nextLine();
+        return cadena;
     }
 
     public static int leerEntero(String texto, int min, int max) {
         int n;
         do {
-            n = leerEntero(texto);
+            n = leerEntero(texto, min, max);
             if (n < min || n > max) {
                 System.out.println("Error...");
             }
         } while (n < min || n > max);
         return n;
     }
+
 }
