@@ -43,7 +43,7 @@ public class Persona {
     @Override
     public String toString() {
         SimpleDateFormat formatoFecha = new SimpleDateFormat("dd/MM/yyyy");
-        String stringFecha = formatoFecha.format(this.fechaNacimiento.getFechaNacimiento());
+        String stringFecha = formatoFecha.format(this.fechaNacimiento.getTime());
 
         return String.format("Nombre: %s\nApellidos: %s\nFecha de nacimiento: %s",
                 this.nombre, this.apellidos, this.fechaNacimiento);
