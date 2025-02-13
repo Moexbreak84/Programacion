@@ -6,11 +6,16 @@ public abstract class Producto {
     private final int IDENTIFICADOR;
     protected double precio;
     private final String DESCRIPCION;
-    public Producto(int IDENTIFICADOR, double precio, String DESCRIPCION){
-        this.DESCRIPCION;
-        this.precio;
-        this.IDENTIFICADOR
+
+    public Producto(double precio, String DESCRIPCION){
         if(precio >= MIN_PRECIO && precio <= MAX_PRECIO){
+            try {
+                this.precio;
+                this.DESCRIPCION;
+                
+            } catch (IllegalArgumentException e) {
+    
+            }
 
         }
     }
@@ -26,11 +31,10 @@ public abstract class Producto {
     public String getDescripcion() {
         return DESCRIPCION;
     }
-    
+
     public String toString() {
-        return String.format("Tipo: %S Id %d Precio: %9.2f Descripcion: %s",getClass().getSimpleName(), IDENTIFICADOR, precio, DESCRIPCION);
+        return String.format("Tipo: %S Id %d Precio: %9.2f Descripcion: %s", this.getClass().getSimpleName(),
+                this.IDENTIFICADOR, this.precio, this.DESCRIPCION);
     }
 
-
-    
 }
