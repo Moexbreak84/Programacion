@@ -1,5 +1,5 @@
 package EstructuraDatos;
 
-public class EReader extends Producto {
+public final class EReader extends Producto {
     
 }

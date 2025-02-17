@@ -6,28 +6,30 @@ public abstract class Libro extends Producto {
     private int anioPublicacion;
     private final int MIN_ANIO = 1500;
 
-    public libro(int IDENTIFICADOR, double precio, String DESCRIPCION, String tituloLibro, String autorLibro, int anioPublicacion) throws IllegalArgumentException {
-        super (IDENTIFICADOR, precio, descripcion);
+    public Libro(int ID, double precio, String DESCRIPCION, String tituloLibro, String autorLibro, int anioPublicacion) throws IllegalArgumentException {
+        super(precio, DESCRIPCION);
         if(anioPublicacion >= MIN_ANIO){
 
+        }else{
+            throw new IllegalArgumentException(String.format("Año fuera de rango: %d",anioPublicacion));
         }
     }
 
     public String getTituloLibro() {
-
+        return tituloLibro;
     }
 
     public String getAutorLibro() {
-
+        return autorLibro;
     }
 
     public int getAnioPublicacion() {
-
+        return anioPublicacion;
     }
 
-    public Libro(String titulo, double precio, String descripcion, String autor, int year)
+    public Libro(String titulo, double precio, String DESCRIPCION, String autorLibro, int anioPublicacion)
             throws IllegalArgumentException {
-        super(precio, descripcion);
+        super(precio, DESCRIPCION);
     }
 
     @Override
