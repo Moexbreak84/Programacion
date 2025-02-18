@@ -6,8 +6,8 @@ public abstract class Libro extends Producto {
     private int anioPublicacion;
     private final int MIN_ANIO = 1500;
 
-    public Libro(int ID, double precio, String DESCRIPCION, String tituloLibro, String autorLibro, int anioPublicacion) throws IllegalArgumentException {
-        super(precio, DESCRIPCION);
+    public Libro(int id, double precio, String descripcion, String tituloLibro, String autorLibro, int anioPublicacion) throws IllegalArgumentException {
+        super(precio, descripcion);
         if(anioPublicacion >= MIN_ANIO){
 
         }else{
@@ -27,9 +27,9 @@ public abstract class Libro extends Producto {
         return anioPublicacion;
     }
 
-    public Libro(String titulo, double precio, String DESCRIPCION, String autorLibro, int anioPublicacion)
+    public Libro(String titulo, double precio, String descripcion, String autorLibro, int anioPublicacion)
             throws IllegalArgumentException {
-        super(precio, DESCRIPCION);
+        super(precio, descripcion);
     }
 
     @Override

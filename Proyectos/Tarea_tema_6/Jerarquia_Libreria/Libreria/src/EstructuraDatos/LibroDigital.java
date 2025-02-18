@@ -7,9 +7,9 @@ public abstract class LibroDigital extends Libro implements Descargable {
     private int numDescargas;
     public final int MIN_SIZE = 20;
     public final int MAX_SIZE = 65535;
-    public LibroDigital(int IDENTIFICADOR, double precio, String DESCRIPCION, String tituloLibro, String autorLibro,
+    public LibroDigital(int id, double precio, String descripcion, String tituloLibro, String autorLibro,
     int anioPublicacion, int size, int numDescargas) throws IllegalArgumentException{
-        super(tituloLibro, precio, DESCRIPCION, autorLibro, anioPublicacion);
+        super(tituloLibro, precio, descripcion, autorLibro, anioPublicacion);
         if(size >= MIN_SIZE && size <= MAX_SIZE){
 
         }else{
@@ -21,10 +21,18 @@ public abstract class LibroDigital extends Libro implements Descargable {
     public int getSize(){
         return size;
     }
+    
+    public void setSize(int size) {
+        this.size = size;
+    }
 
     @Override
     public int getNumDescargas(){
         return numDescargas;
+    }
+
+    public void setNumDescargas(int numDescargas) {
+        this.numDescargas = numDescargas;
     }
 
     @Override

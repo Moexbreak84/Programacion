@@ -5,9 +5,9 @@ public final class LibroFisico extends Libro {
     private final int MIN_PAGINAS = 20;
     private final int MAX_PAGINAS = 5000;
 
-    public LibroFisico(int ID, double precio, String DESCRIPCION, String tituloLibro, String autorLibro,
+    public LibroFisico(int id, double precio, String descripcion, String tituloLibro, String autorLibro,
             int anioPublicacion, int numPaginas) {
-        super(tituloLibro, precio, DESCRIPCION, autorLibro, anioPublicacion);
+        super(tituloLibro, precio, descripcion, autorLibro, anioPublicacion);
         if (numPaginas < MIN_PAGINAS || numPaginas > MAX_PAGINAS) {
             throw new IllegalArgumentException("Número de páginas fuera del rango permitido: " + numPaginas);
         }
@@ -19,10 +19,10 @@ public final class LibroFisico extends Libro {
         return numPaginas;
     }
 
-    public LibroFisico(int IDENTIFICADOR, String tituloLibro, double precio, String DESCRIPCION, String autorLibro,
+    public LibroFisico(int id, String tituloLibro, double precio, String descripcion, String autorLibro,
             int anioPublicacion)
             throws IllegalArgumentException {
-        super(tituloLibro, precio, DESCRIPCION, autorLibro, anioPublicacion);
+        super(tituloLibro, precio, descripcion, autorLibro, anioPublicacion);
     }
 
     @Override
