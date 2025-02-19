@@ -1,3 +1,5 @@
+package controladores;
+
 import estructuraDatos.Producto;
 import utilidades.ES;
 public class CProducto {
@@ -9,12 +11,9 @@ public class CProducto {
                 if (productos[i].getCodigo().equals(codigo)) {
                     return i;
                 } else {
-                    return -1;
+                    return -1; 
                 }
-            } else {
-                return -1;
             }
-
         }
     }
 
@@ -49,7 +48,7 @@ public class CProducto {
     }
 
     public static String toStringProducto(int){
-
+        
     }
 
     public static String toStringProducto(String){

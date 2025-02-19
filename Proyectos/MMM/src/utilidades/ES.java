@@ -18,18 +18,19 @@ public class ES {
         System.out.println("introduce un numero entero ");
         return leerEntero();
     }
-    public static int leerEntero(String codigo, int min, int max){
-        int n;
-        do{
-            try{
-            n = leerEntero(codigo);
-            }catch(InputException e){
-
+    public class LeerString {
+        public static void main(String[] args) {
+            String input = "";
+    
+            try {
+                System.out.print("Por favor, introduce un texto: ");
+                input = sc.nextLine();
+                System.out.println("Has introducido: " + input);
+            } catch (Exception e) {
+                System.out.println("Ha ocurrido un error al leer la entrada: " + e.getMessage());
+            } finally {
+                sc.close(); 
             }
-            if(n < min || n > max){
-                System.out.println("Error...");
-            }
-        }while(n < min || n > max);
-        return n;
+        }
     }
 }
