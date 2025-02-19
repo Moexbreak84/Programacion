@@ -10,50 +10,22 @@ public class Producto {
     private int unidades;
     private float precioCompra;
 
-    public Producto(String codigo, String nombre, String descripcion, int unidades, float precioCompra) {
-        if (validarCodigo(codigo)) {
-            this.codigo = codigo;
-        } else {
-            this.codigo = "X";
-        }
-        if (unidades >= 0) {
-            this.unidades = 0;
-        }
-        if (precioCompra >= 0) {
-            this.precioCompra = precioCompra;
-        } else {
-            this.precioCompra = 0;
-            this.descripcion = descripcion;
-            this.nombre = nombre;
-        }
+    public Producto(String codigo, String nombre, String descripcion, double precio, int unidades) {
+        this.codigo = validarCodigo(codigo) ? codigo : "X";
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+        this.precioCompra = (float) Math.max(precio, 0);
+        this.unidades = Math.max(unidades, 0);
+    }
+
+    private boolean validarCodigo(String codigo) {
+        Pattern p = Pattern.compile("^[A-Z]{2}[0-9]{6}$");
+        Matcher m = p.matcher(codigo);
+        return m.matches();
     }
 
     public String getCodigo() {
         return this.codigo;
-    }
-
-    public void setCodigo(String codigo) {
-        if (validarCodigo(codigo)) {
-            this.codigo = codigo;
-        }
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
-    }
-
-    public void setUnidades(int unidades) {
-        if (unidades > 0) {
-            this.unidades = unidades;
-        }
-    }
-
-    public void setPrecioCompra(float precioCompra) {
-        this.precioCompra = precioCompra;
     }
 
     public String getNombre() {
@@ -77,9 +49,17 @@ public class Producto {
                 this.codigo, this.nombre, this.descripcion, this.unidades, this.precioCompra);
     }
 
-    private boolean validarCodigo(String codigo) {
-        Pattern p = Pattern.compile("^[A-Z]{2}[0-9]{6}$");
-        Matcher m = p.matcher(codigo);
-        return m.matches();
+    public void agregarUnidades(int cantidad) {
+        if (cantidad > 0) {
+            this.unidades += cantidad;
+        }
+    }
+
+    public boolean quitarUnidades(int cantidad) {
+        if (this.unidades - cantidad >= 0) {
+            this.unidades -= cantidad;
+            return true;
+        }
+        return false;
     }
 }

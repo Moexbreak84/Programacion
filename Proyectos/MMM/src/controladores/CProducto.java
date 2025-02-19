@@ -1,99 +1,55 @@
 package controladores;
 
 import estructuraDatos.Producto;
-import utilidades.ES;
+
 public class CProducto {
     private static Producto[] productos = new Producto[100];
+    private static int contador;
 
     private static int buscarProducto(String codigo) {
         for (int i = 0; i < productos.length; i++) {
-            if (productos != null) {
-                if (productos[i].getCodigo().equals(codigo)) {
-                    return i;
-                } else {
-                    return -1; 
-                }
-            }
-        }
-    }
-
-    private static int primeraPosicionVacia(){
-        for(int i = 0; i < productos.length; i++){
-            if(productos[i] == null){
+            if (productos[i] != null && productos[i].getCodigo().equals(codigo)) {
                 return i;
-            }else{
-            return -1;
             }
         }
+        return -1;
     }
 
-    public static Producto[] obtenerTodosProductos() {
-        return productos;
-    }
-
-    public static Producto obtenerProducto(int posicion) {
-        if(posicion >= 0 && posicion < productos.length){
-            return productos[posicion];
+    private static int primeraPosicionVacia() {
+        for (int i = 0; i < productos.length; i++) {
+            if (productos[i] == null) {
+                return i;
+            }
         }
-        return null;
+        return -1;
     }
 
-    public static Producto obtenerProducto(String codigo) {
-        int posicion = buscarProducto(codigo);
-        if(buscarProducto(codigo)!= -1){
-            return productos[posicion];
-        }else{
-            return null;
+    public static boolean agregarProducto(Producto producto) {
+        if (contador < productos.length && buscarProducto(producto.getCodigo()) == -1) {
+            productos[contador++] = producto;
+            return true;
         }
-    }
-
-    public static String toStringProducto(int){
-        
-    }
-
-    public static String toStringProducto(String){
-
-    }
-
-    public static boolean agregarProducto(String codigo, String nombre, String descripcion, int unidades,
-            float precioCompra) {
-
-    }
-
-    public static boolean quedaEspacioProductos() {
-
-    }
-
-    public static boolean modificarProducto(String codigo, String nombre) {
-
-    }
-
-    public static int posicionRegistroProducto(String codigo) {
-
-    }
-
-    public static boolean modificarCodigoProducto(int unidades, String codigo) {
-
-    }
-
-    public static boolean modificarCodigoProducto(String codigo, String nombre) {
-
-    }
-
-    public static boolean agregarUnidadesProducto(String codigo, int unidades) {
-
-    }
-
-    public static boolean quitarUnidadesProducto(String codigo, int unidades) {
-
-    }
-
-    public static boolean eliminarProducto(int unidades) {
-
+        return false;
     }
 
     public static boolean eliminarProducto(String codigo) {
-
+        int pos = buscarProducto(codigo);
+        if (pos != -1) {
+            for (int i = pos; i < contador - 1; i++) {
+                productos[i] = productos[i + 1];
+            }
+            productos[--contador] = null;
+            return true;
+        }
+        return false;
     }
 
+    public static void mostrarProductos() {
+        for (int i = 0; i < contador; i++) {
+            if (productos[i] != null) {
+                System.out.println(productos[i]);
+                System.out.println("-------------------");
+            }
+        }
+    }
 }
