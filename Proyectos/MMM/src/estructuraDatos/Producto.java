@@ -3,7 +3,7 @@ package estructuraDatos;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import interfazDeUsuario.Calculable;
+import interfaces.Calculable;
 
 public class Producto implements Calculable {
     private String codigo;
@@ -49,7 +49,7 @@ public class Producto implements Calculable {
     }
 
     @Override
-    public float getCalcularPrecio() {
+    public float CalcularPrecio() {
         if (precioCompra >= 1) {
             precioCompra = precioCompra / unidades;
             return (float) precioCompra;

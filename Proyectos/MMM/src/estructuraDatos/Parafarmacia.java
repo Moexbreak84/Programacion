@@ -1,7 +1,9 @@
 package estructuraDatos;
 
+import enumerados.Categoria;
+
 public class Parafarmacia extends Producto {
-    private String categoria;
+    private Categoria categoria;
     private int dosisUnidades;
     private int descuento;
 
@@ -14,16 +16,16 @@ public class Parafarmacia extends Producto {
     }
 
     @Override
-    public float getCalcularPrecio() {
+    public float CalcularPrecio() {
         setPrecioCompra(this.getPrecioCompra() / 100 * (40 + 21f));
         return (float) getPrecioCompra();
     }
 
-    public String getCategoria() {
+    public Categoria getCategoria() {
         return categoria;
     }
 
-    public void setCategoria(String categoria) {
+    public void setCategoria(Categoria categoria) {
         this.categoria = categoria;
     }
 

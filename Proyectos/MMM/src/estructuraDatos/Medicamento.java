@@ -17,7 +17,7 @@ public class Medicamento extends Producto {
     }
 
     @Override
-    public float getCalcularPrecio() {
+    public float CalcularPrecio() {
         setPrecioCompra(precioUnidad / 100 * (4 + 27.9f));
         return (float) getPrecioCompra();
     }
