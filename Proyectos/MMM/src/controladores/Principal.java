@@ -1,3 +1,5 @@
+package controladores;
+
 import controladores.CProducto;
 import estructuraDatos.Producto;
 import utilidades.ES;
@@ -16,12 +18,13 @@ public class Principal {
 
             switch (opcion) {
                 case 1:
-                    String codigo = ES.leerString("Ingrese el código del producto: ");
-                    String nombre = ES.leerString("Ingrese el nombre del producto: ");
-                    String descripcion = ES.leerString("Ingrese la descripción del producto: ");
-                    double precio = ES.leerDouble("Ingrese el precio del producto: ");
-                    int unidades = ES.leerEntero("Ingrese las unidades del producto: ");
-                    Producto producto = new Producto(codigo, nombre, descripcion, precio, unidades);
+                    String codigo = ES.leerString("Introduce el código del producto: ");
+                    String nombre = ES.leerString("Introduce el nombre del producto: ");
+                    String descripcion = ES.leerString("Introduce la descripción del producto: ");
+                    double precio = ES.leerDouble("Introduce el precio del producto: ");
+                    int unidades = ES.leerEntero("Introduce las unidades del producto: ");
+                    float precioUnidad = ES.leerFloat();
+                    Producto producto = new Producto(codigo, nombre, descripcion, precio, precioUnidad);
                     if (manager.agregarProducto(producto)) {
                         System.out.println("Producto agregado exitosamente.");
                     } else {
@@ -29,7 +32,7 @@ public class Principal {
                     }
                     break;
                 case 2:
-                    String codigoEliminar = ES.leerString("Ingrese el código del producto a eliminar: ");
+                    String codigoEliminar = ES.leerString("agrega el código del producto a eliminar: ");
                     if (manager.eliminarProducto(codigoEliminar)) {
                         System.out.println("Producto eliminado exitosamente.");
                     } else {

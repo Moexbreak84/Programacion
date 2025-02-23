@@ -5,7 +5,8 @@ public class Parafarmacia extends Producto {
     private int dosisUnidades;
     private int descuento;
 
-    public Parafarmacia(String codigo, String nombre, String descripcion, int unidades, float precioCompra, String caegoria, int dosisUnidades, int descuento) {
+    public Parafarmacia(String codigo, String nombre, String descripcion, int unidades, float precioCompra,
+            String caegoria, int dosisUnidades, int descuento) {
         super(codigo, nombre, descripcion, unidades, precioCompra);
         this.categoria = categoria;
         this.dosisUnidades = dosisUnidades;
@@ -13,10 +14,10 @@ public class Parafarmacia extends Producto {
     }
 
     @Override
-    public int getCalcularPrecio() {
-                setPrecioCompra(precioUnidad /100 * (40+21f));
-    return (int) getPrecioCompra();
-}
+    public float getCalcularPrecio() {
+        setPrecioCompra(this.getPrecioCompra() / 100 * (40 + 21f));
+        return (float) getPrecioCompra();
+    }
 
     public String getCategoria() {
         return categoria;
@@ -29,7 +30,7 @@ public class Parafarmacia extends Producto {
     public int getDosisUnidades() {
         return dosisUnidades;
     }
-     
+
     public void setDosisUnidades(int dosisUnidades) {
         this.dosisUnidades = dosisUnidades;
     }
@@ -45,10 +46,10 @@ public class Parafarmacia extends Producto {
     @Override
     public String toString() {
         return String.format("%-14s Categoria: %S Dosis Unidades: %d Descuento: %d",
-            super.toString(),
-            this.getCategoria(),
-            this.getDosisUnidades(),
-            this.getDescuento());
+                super.toString(),
+                this.getCategoria(),
+                this.getDosisUnidades(),
+                this.getDescuento());
 
     }
 }

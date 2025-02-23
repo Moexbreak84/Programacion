@@ -10,18 +10,42 @@ public class CProducto {
         for (int i = 0; i < productos.length; i++) {
             if (productos[i] != null && productos[i].getCodigo().equals(codigo)) {
                 return i;
+            } else {
+                return -1;
             }
         }
-        return -1;
+        return contador;
     }
 
     private static int primeraPosicionVacia() {
         for (int i = 0; i < productos.length; i++) {
             if (productos[i] == null) {
                 return i;
+            } else {
+                return -1;
             }
         }
-        return -1;
+        return contador;
+    }
+
+    public static Producto[] obtenerTodosProductos() {
+        return productos;
+    }
+
+    public static Producto obtenerProducto(int posicion) {
+        if (posicion >= 0 && posicion < productos.length) {
+            return productos[posicion];
+        }
+        return null;
+    }
+
+    public static Producto obtenerProducto(String codigo) {
+        int posicion = buscarProducto(codigo);
+        if (buscarProducto(codigo) != -1) {
+            return productos[posicion];
+        } else {
+            return null;
+        }
     }
 
     public static boolean agregarProducto(Producto producto) {

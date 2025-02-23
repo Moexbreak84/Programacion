@@ -31,4 +31,13 @@ public class ES {
         System.out.print(mensaje);
         return Double.parseDouble(sc.nextLine());
     }
+
+    public static float leerFloat() {
+        System.out.print("Introduce un valor de tipo float (con decimales): ");
+        float valor = sc.nextFloat();
+        System.out.println("El valor ingresado es: " + valor);
+        sc.close();
+        return valor;
+    }
+
 }
