@@ -6,7 +6,7 @@ public class Semana {
         ArrayList<DayOfWeek> listaDays = new ArrayList<>();
         for(int i =0; i < 5; i++){
             int aleatorio = 1+(int)(Math.random()*7);
-            final DayOfWeek diaSem = DayOfWeek.of(aleatorio)0;
+            final DayOfWeek diaSem = DayOfWeek.of(aleatorio);
             listaDays.add(diaSem);
         }
     }

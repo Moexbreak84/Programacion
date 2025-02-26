@@ -1,5 +1,6 @@
 import java.util.LinkedList;
 import java.util.ArrayList;
+
 public class NumAleatorios {
     public static void main(String[] args) throws Exception {
         ArrayList<Integer> Aleatorios1= new ArrayList<>();
@@ -31,5 +32,28 @@ public class NumAleatorios {
         for(Integer i : Aleatorios2){
             System.out.print(i+" ");
         }
+    
+    //el superior esta hecho desde mi desconocimiento.
+        System.out.println("LISTA DE NÚMEROS ALEATORIOS");
+        System.out.println("---------------------------");
+        System.out.println();
+
+        ArrayList<Integer> lista1 = new ArrayList<>();
+        ArrayList<Integer> lista2 = new ArrayList<>();
+            for (int i = 0; i < 10; i++) {
+                int numAleatorio = (int) (Math.random() * 100);
+                System.out.printf ("Añadimos el número %d\n", numAleatorio);
+                lista1.add(numAleatorio);
+                lista2.add(0, numAleatorio);
+                System.out.printf("Lista1:%s\n", lista1);
+                System.out.printf("Lista2:%s\n", lista2);
+        }
+
+        System.out.println();
+        System.out.println("RESULTADO FINAL");
+        System.out.println("---------------");
+        System.out.printf("Lista1:%s\n", lista1);
+        System.out.println();
+        System.out.printf("Lista2:%s\n", lista2);
     }
 }
