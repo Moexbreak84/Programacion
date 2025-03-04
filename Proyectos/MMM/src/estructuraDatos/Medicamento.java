@@ -16,6 +16,7 @@ public class Medicamento extends Producto {
         this.tipoMedicamento = tipoMedicamento;
     }
 
+
     @Override
     public float CalcularPrecio() {
         setPrecioCompra(precioUnidad / 100 * (4 + 27.9f));

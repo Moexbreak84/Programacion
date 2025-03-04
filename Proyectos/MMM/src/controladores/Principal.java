@@ -1,10 +1,14 @@
 package controladores;
 
 import controladores.CProducto;
-import estructuraDatos.Producto;
+import enumerados.TipoMedicamento;
+import estructuraDatos.*;
 import utilidades.ES;
 
 public class Principal {
+    /**
+     * @param args
+     */
     public static void main(String[] args) {
         CProducto manager = new CProducto();
         boolean salir = false;
@@ -24,7 +28,7 @@ public class Principal {
                     double precio = ES.leerDouble("Introduce el precio del producto: ");
                     int unidades = ES.leerEntero("Introduce las unidades del producto: ");
                     float precioUnidad = ES.leerFloat();
-                    Producto producto = new Producto(codigo, nombre, descripcion, precio, precioUnidad);
+                    Producto producto = new Parafarmacia(codigo, nombre, descripcion, unidades, opcion, null, unidades, precioUnidad);
                     if (manager.agregarProducto(producto)) {
                         System.out.println("Producto agregado exitosamente.");
                     } else {

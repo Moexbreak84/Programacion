@@ -5,20 +5,28 @@ import enumerados.Categoria;
 public class Parafarmacia extends Producto {
     private Categoria categoria;
     private int dosisUnidades;
-    private int descuento;
+    private float descuento;
 
     public Parafarmacia(String codigo, String nombre, String descripcion, int unidades, float precioCompra,
-            String caegoria, int dosisUnidades, int descuento) {
+            Categoria categoria, int dosisUnidades, float descuento) {
         super(codigo, nombre, descripcion, unidades, precioCompra);
         this.categoria = categoria;
-        this.dosisUnidades = dosisUnidades;
+        if(dosisUnidades <= 0){
+            this.dosisUnidades = 1;
+        }else{
+            this.dosisUnidades = dosisUnidades;
+        }
+        if(descuento <= 0){
+            this.descuento = 0;
+        }else{
         this.descuento = descuento;
+        }
     }
 
     @Override
     public float CalcularPrecio() {
-        setPrecioCompra(this.getPrecioCompra() / 100 * (40 + 21f));
-        return (float) getPrecioCompra();
+        float p = super.CalcularPrecio();
+        return p*(1-descuento/100)*1.40f * 1.21f;
     }
 
     public Categoria getCategoria() {
@@ -34,15 +42,19 @@ public class Parafarmacia extends Producto {
     }
 
     public void setDosisUnidades(int dosisUnidades) {
-        this.dosisUnidades = dosisUnidades;
+        if(dosisUnidades > 0){
+            this.dosisUnidades = dosisUnidades;
+        }
     }
 
-    public int getDescuento() {
+    public float getDescuento() {
         return descuento;
     }
 
-    public void setDescuento(int descuento) {
-        this.descuento = descuento;
+    public void setDescuento(float descuento) {
+        if(descuento > 0){
+            this.descuento = descuento;
+        }
     }
 
     @Override
