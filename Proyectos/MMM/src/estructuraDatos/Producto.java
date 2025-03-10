@@ -10,7 +10,7 @@ public abstract class Producto implements Calculable {
     private String nombre;
     private String descripcion;
     private int unidades;
-    protected float precioCompra;
+    protected static float precioCompra;
 
     /**
      * Constructor crea un objeto para Producto.
@@ -48,6 +48,15 @@ public abstract class Producto implements Calculable {
         return m.matches();
     }
 
+    /**
+     * Calcula el precio del producto.
+     * Si el precio de compra es mayor o igual a 1, se divide el precio de compra
+     * por el número de unidades para obtener el precio unitario.
+     * 
+     * @return El precio unitario del producto si el precio de compra es mayor o
+     *         igual a 1,
+     *         de lo contrario, devuelve 0.
+     */
     @Override
     public float CalcularPrecio() {
         if (precioCompra >= 1) {
@@ -151,6 +160,14 @@ public abstract class Producto implements Calculable {
         this.precioCompra = precioCompra;
     }
 
+    /**
+     * Devuelve una representación en forma de cadena del producto.
+     * La cadena incluye el código, nombre, descripción, unidades y precio del
+     * producto,
+     * formateada de manera legible.
+     *
+     * @return Una cadena que representa el producto, incluyendo sus atributos.
+     */
     @Override
     public String toString() {
         return String.format("Producto\n--------\nCodigo: %s\nNombre: %s\nDescripcion: %s\nUnidades: %d\nPrecio: %.2f",
