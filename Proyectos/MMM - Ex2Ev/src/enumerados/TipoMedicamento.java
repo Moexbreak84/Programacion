@@ -1,0 +1,15 @@
+package enumerados;
+
+public enum TipoMedicamento {
+    ANALGESICOS,
+    ANTIACIDOS,
+    ANTIULCEROSOS,
+    ANTIALERGICOS,
+    ANTIDIARREICOS,
+    LAXANTES,
+    ANTIINFECCIOSOS,
+    ANTIINFLAMATORIOS,
+    ANTIPIRETICOS,
+    ANTITUSIVOS,
+    MUCOLITICOS;
+}
