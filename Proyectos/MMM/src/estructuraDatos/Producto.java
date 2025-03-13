@@ -10,7 +10,7 @@ public abstract class Producto implements Calculable {
     private String nombre;
     private String descripcion;
     private int unidades;
-    protected static float precioCompra;
+    protected float precioCompra;
 
     /**
      * Constructor crea un objeto para Producto.

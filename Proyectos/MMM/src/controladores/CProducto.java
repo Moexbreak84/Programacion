@@ -1,9 +1,12 @@
 package controladores;
 
+import java.util.ArrayList;
+import java.util.Comparator;
+
 import estructuraDatos.Producto;
 
 public class CProducto {
-    private static Producto[] productos = new Producto[100];
+    static ArrayList<Producto> productos = new ArrayList<>();
     private static int contador;
 
     /**
@@ -13,15 +16,15 @@ public class CProducto {
      * @return La posición del producto en el array si se encuentra,
      *         de lo contrario, devuelve -1.
      */
-    private static int buscarProducto(String codigo) {
-        for (int i = 0; i < productos.length; i++) {
-            if (productos[i] != null && productos[i].getCodigo().equals(codigo)) {
-                return i;
+    private static Producto buscarProducto(String codigo) {
+        for (Producto producto : productos) {
+            if (productos != null && productos.equals(codigo)) {
+                return producto;
             } else {
-                return -1;
+                return null;
             }
+            return codigo;
         }
-        return contador;
     }
 
     /**
@@ -31,9 +34,9 @@ public class CProducto {
      *         de lo contrario, devuelve -1.
      */
     private static int primeraPosicionVacia() {
-        for (int i = 0; i < productos.length; i++) {
-            if (productos[i] == null) {
-                return i;
+        for (Producto producto : productos) {
+            if (productos == null) {
+                return 1;
             } else {
                 return -1;
             }
@@ -46,8 +49,9 @@ public class CProducto {
      * 
      * @return Un array de productos que contiene todos los productos.
      */
-    public static Producto[] obtenerTodosProductos() {
-        return productos;
+    public static Producto obtenerTodosProductos() {
+        productos.sort(Comparator.reverseOrder());
+        System.out.println(productos);
     }
 
     /**
@@ -58,8 +62,8 @@ public class CProducto {
      *         o null si la posición es inválida.
      */
     public static Producto obtenerProducto(int posicion) {
-        if (posicion >= 0 && posicion < productos.length) {
-            return productos[posicion];
+        if (posicion >= 0 && posicion < productos.size()) {
+            return productos.size().[posicion];
         }
         return null;
     }
@@ -72,9 +76,9 @@ public class CProducto {
      *         o null si no se encuentra.
      */
     public static Producto obtenerProducto(String codigo) {
-        int posicion = buscarProducto(codigo);
+        Producto posicion = buscarProducto(codigo);
         if (buscarProducto(codigo) != -1) {
-            return productos[posicion];
+            return posicion;
         } else {
             return null;
         }
@@ -88,8 +92,8 @@ public class CProducto {
      *         false si no hay espacio o el producto ya existe.
      */
     public static boolean agregarProducto(Producto producto) {
-        if (contador < productos.length && buscarProducto(producto.getCodigo()) == -1) {
-            productos[contador++] = producto;
+        if (contador < productos.size() && buscarProducto(producto.getCodigo()) == -1) {
+            producto = producto;
             return true;
         }
         return false;
@@ -103,12 +107,12 @@ public class CProducto {
      *         false si no se encuentra el producto.
      */
     public static boolean eliminarProducto(String codigo) {
-        int pos = buscarProducto(codigo);
+        Producto pos = buscarProducto(codigo);
         if (pos != -1) {
-            for (int i = pos; i < contador - 1; i++) {
-                productos[i] = productos[i + 1];
+            for (Producto i = pos; i < contador - 1; i++) {
+                productos = productos<i + 1>;
             }
-            productos[--contador] = null;
+            productos = null;
             return true;
         }
         return false;
@@ -120,8 +124,8 @@ public class CProducto {
      */
     public static void mostrarProductos() {
         for (int i = 0; i < contador; i++) {
-            if (productos[i] != null) {
-                System.out.println(productos[i]);
+            if (productos != null) {
+                System.out.println(productos);
                 System.out.println("-------------------");
             }
         }

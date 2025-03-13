@@ -19,19 +19,19 @@ public class Parafarmacia extends Producto {
      * @param dosisUnidades Número de dosis o unidades en el envase.
      * @param descuento2    Descuento aplicable al producto (0-100).
      */
-    public Parafarmacia(String codigo, String nombre, String descripcion, int unidades, double precioCompraP,
-            Categoria categoria, int dosisUnidades, double descuento2) {
-        super(codigo, nombre, descripcion, unidades, precioCompra);
+    public Parafarmacia(String codigo, String nombre, String descripcion, int unidades, float precioCompraP,
+            Categoria categoria, int dosisUnidades, float descuento2) {
+        super(codigo, nombre, descripcion, unidades, precioCompraP);
         this.categoria = categoria;
         if (dosisUnidades <= 0) {
             this.dosisUnidades = 1;
         } else {
             this.dosisUnidades = dosisUnidades;
         }
-        if (descuento <= 0) {
+        if (descuento2 <= 0) {
             this.descuento = 0;
         } else {
-            this.descuento = descuento;
+            this.descuento = descuento2;
         }
     }
 

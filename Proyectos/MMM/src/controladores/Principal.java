@@ -1,7 +1,6 @@
 package controladores;
 
 import estructuraDatos.*;
-import controladores.CProducto;
 import enumerados.Categoria;
 import enumerados.TipoMedicamento;
 import utilidades.ES;
@@ -19,6 +18,7 @@ public class Principal {
             System.out.println("3. Mostrar Productos");
             System.out.println("4. Salir");
             int opcion = ES.leerEntero("Seleccione una opción: ");
+            ES.limpiarTeclado();
 
             switch (opcion) {
                 case 1:
@@ -27,7 +27,8 @@ public class Principal {
                     String descripcion = ES.leerString("Ingrese la descripción: ");
                     double precio = ES.leerDouble("Ingrese el precio: ");
                     int unidades = ES.leerEntero("Ingrese las unidades: ");
-                    TipoMedicamento tipoMedicamento = TipoMedicamento.ANALGESICOS; // Ejemplo
+                    TipoMedicamento tipoMedicamento = TipoMedicamento.ANALGESICOS;
+                    ES.limpiarTeclado();
                     String comoTomar = ES.leerString("Ingrese cómo tomar: ");
                     String efectosAdversos = ES.leerString("Ingrese efectos adversos: ");
                     Medicamento medicamento = new Medicamento(codigo, nombre, descripcion, precio, unidades,
@@ -44,12 +45,10 @@ public class Principal {
                     String descripcionP = ES.leerString("Ingrese la descripción: ");
                     double precioCompraP = ES.leerDouble("Ingrese el precio: ");
                     int unidadesP = ES.leerEntero("Ingrese las unidades: ");
-                    Categoria categoria = Categoria.BOTIQUIN; // Ejemplo
+                    Categoria categoria = Categoria.BOTIQUIN;
                     int dosisUnidades = ES.leerEntero("Ingrese dosis unidades: ");
-                    double descuento = ES.leerDouble("Ingrese descuento: ");
-                    Parafarmacia parafarmacia = new Parafarmacia(codigoP, nombreP, descripcionP, unidadesP,
-                            precioCompraP,
-                            categoria, dosisUnidades, descuento);
+                    float descuento = ES.leerFloat("Ingrese descuento: ");
+                    Parafarmacia parafarmacia = new Parafarmacia(codigoP, nombreP, descripcionP, unidadesP, unidadesP, categoria, dosisUnidades, descuento);
                     if (CProducto.agregarProducto(parafarmacia)) {
                         System.out.println("Parafarmacia agregada exitosamente.");
                     } else {

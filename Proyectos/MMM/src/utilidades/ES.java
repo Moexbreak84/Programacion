@@ -32,8 +32,8 @@ public class ES {
      *               ingresar un número entero.
      * @return El número entero ingresado por el usuario.
      */
-    public static int leerEntero(String codigo) {
-        System.out.println("introduce un numero entero ");
+    public static int leerEntero(String texto) {
+        System.out.println(texto);
         return leerEntero();
     }
 
@@ -68,12 +68,19 @@ public class ES {
      *
      * @return El valor float ingresado por el usuario.
      */
-    public static float leerFloat() {
-        System.out.print("Introduce un valor de tipo float (con decimales): ");
+    public static float leerFloat(String texto) {
+        System.out.print(texto);
         float valor = sc.nextFloat();
         System.out.println("El valor ingresado es: " + valor);
         sc.close();
         return valor;
+    }
+
+    /**
+     * Este metodo limpia el teclado y lo uso desde principal para que no de error al pasar de un tipo de dato a cualquier otro tipo de * dato.
+     */
+    public static void limpiarTeclado(){
+        sc.nextLine();
     }
 
 }
