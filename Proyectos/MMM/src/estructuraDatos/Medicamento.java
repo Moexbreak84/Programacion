@@ -43,6 +43,22 @@ public class Medicamento extends Producto {
     }
 
     /**
+     * Devuelve una representación en forma de cadena del medicamento.
+     * La cadena incluye el código, nombre, descripción, tipo de medicamento,
+     * instrucciones sobre cómo tomarlo y los efectos adversos.
+     *
+     * @return Una cadena que representa el medicamento, incluyendo sus atributos.
+     */
+    @Override
+    public String toString() {
+        return String.format("%-14s Tipo Medicamento: %s Como tomar: %s efectos Adversos: %s",
+                super.toString(),
+                this.getTipoMedicamento(),
+                this.getComoTomar(),
+                this.getEfectosAdversos());
+    }
+
+    /**
      * identifica el tipo de medicamento
      * 
      * @return
@@ -92,21 +108,5 @@ public class Medicamento extends Producto {
      */
     public void setEfectosAdversos(String efectosAdversos) {
         this.efectosAdversos = efectosAdversos;
-    }
-
-    /**
-     * Devuelve una representación en forma de cadena del medicamento.
-     * La cadena incluye el código, nombre, descripción, tipo de medicamento,
-     * instrucciones sobre cómo tomarlo y los efectos adversos.
-     *
-     * @return Una cadena que representa el medicamento, incluyendo sus atributos.
-     */
-    @Override
-    public String toString() {
-        return String.format("%-14s Tipo Medicamento: %s Como tomar: %s efectos Adversos: %s",
-                super.toString(),
-                this.getTipoMedicamento(),
-                this.getComoTomar(),
-                this.getEfectosAdversos());
     }
 }

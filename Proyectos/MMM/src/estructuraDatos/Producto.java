@@ -67,6 +67,45 @@ public abstract class Producto implements Calculable {
     }
 
     /**
+     * Devuelve una representación en forma de cadena del producto.
+     * La cadena incluye el código, nombre, descripción, unidades y precio del
+     * producto,
+     * formateada de manera legible.
+     *
+     * @return Una cadena que representa el producto, incluyendo sus atributos.
+     */
+    @Override
+    public String toString() {
+        return String.format("Producto\n--------\nCodigo: %s\nNombre: %s\nDescripcion: %s\nUnidades: %d\nPrecio: %.2f",
+                this.codigo, this.nombre, this.descripcion, this.unidades, this.precioCompra);
+    }
+
+    /**
+     * Agrega unidades al producto.
+     * 
+     * @param cantidad La cantidad de unidades que se agregan.
+     */
+    public void agregarUnidades(int cantidad) {
+        if (cantidad > 0) {
+            this.unidades += cantidad;
+        }
+    }
+
+    /**
+     * Quita unidades del producto.
+     * 
+     * @param cantidad La cantidad de unidades que quitar.
+     * @return true si quita las unidades, false si no las quita.
+     */
+    public boolean quitarUnidades(int cantidad) {
+        if (this.unidades - cantidad >= 0) {
+            this.unidades -= cantidad;
+            return true;
+        }
+        return false;
+    }
+
+    /**
      * el código del producto.
      * 
      * @return El código del producto.
@@ -158,44 +197,5 @@ public abstract class Producto implements Calculable {
      */
     public void setPrecioCompra(float precioCompra) {
         this.precioCompra = precioCompra;
-    }
-
-    /**
-     * Devuelve una representación en forma de cadena del producto.
-     * La cadena incluye el código, nombre, descripción, unidades y precio del
-     * producto,
-     * formateada de manera legible.
-     *
-     * @return Una cadena que representa el producto, incluyendo sus atributos.
-     */
-    @Override
-    public String toString() {
-        return String.format("Producto\n--------\nCodigo: %s\nNombre: %s\nDescripcion: %s\nUnidades: %d\nPrecio: %.2f",
-                this.codigo, this.nombre, this.descripcion, this.unidades, this.precioCompra);
-    }
-
-    /**
-     * Agrega unidades al producto.
-     * 
-     * @param cantidad La cantidad de unidades que se agregan.
-     */
-    public void agregarUnidades(int cantidad) {
-        if (cantidad > 0) {
-            this.unidades += cantidad;
-        }
-    }
-
-    /**
-     * Quita unidades del producto.
-     * 
-     * @param cantidad La cantidad de unidades que quitar.
-     * @return true si quita las unidades, false si no las quita.
-     */
-    public boolean quitarUnidades(int cantidad) {
-        if (this.unidades - cantidad >= 0) {
-            this.unidades -= cantidad;
-            return true;
-        }
-        return false;
     }
 }

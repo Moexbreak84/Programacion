@@ -2,11 +2,12 @@ package controladores;
 
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.TreeSet;
 
 import estructuraDatos.Producto;
 
 public class CProducto {
-    static ArrayList<Producto> productos = new ArrayList<>();
+    static TreeSet<Producto> productos = new TreeSet<Producto>();
     private static int contador;
 
     /**
@@ -18,13 +19,11 @@ public class CProducto {
      */
     private static Producto buscarProducto(String codigo) {
         for (Producto producto : productos) {
-            if (productos != null && productos.equals(codigo)) {
+            if (producto.getCodigo().equals(codigo)) {
                 return producto;
-            } else {
-                return null;
             }
-            return codigo;
         }
+        return null;
     }
 
     /**
@@ -49,9 +48,14 @@ public class CProducto {
      * 
      * @return Un array de productos que contiene todos los productos.
      */
-    public static Producto obtenerTodosProductos() {
-        productos.sort(Comparator.reverseOrder());
-        System.out.println(productos);
+    public static void obtenerTodosProductos() {
+        ArrayList<Producto> listaProductos = new ArrayList<>(productos);
+        listaProductos.sort(Comparator.reverseOrder());
+        System.out.println(listaProductos);
+    }
+
+    public Producto obtenerProducto(String codigo) {
+        return productos.stream().filter(p -> p.getCodigo().equals(codigo)).findFirst().orElse(null);
     }
 
     /**
@@ -69,50 +73,30 @@ public class CProducto {
     }
 
     /**
-     * Obtiene un producto a partir de su código.
-     * 
-     * @param codigo El código del producto a buscar.
-     * @return El producto correspondiente al código,
-     *         o null si no se encuentra.
-     */
-    public static Producto obtenerProducto(String codigo) {
-        Producto posicion = buscarProducto(codigo);
-        if (buscarProducto(codigo) != -1) {
-            return posicion;
-        } else {
-            return null;
-        }
-    }
-
-    /**
-     * Agrega un nuevo producto al array de productos.
+     * Agrega un nuevo producto al conjunto de productos.
      * 
      * @param producto El producto a agregar.
-     * @return true si el producto se ha agregado correctamente,
-     *         false si no hay espacio o el producto ya existe.
+     * @return true si el producto se ha agregado correctamente, false si ya existe.
      */
     public static boolean agregarProducto(Producto producto) {
-        if (contador < productos.size() && buscarProducto(producto.getCodigo()) == -1) {
-            producto = producto;
+        if (buscarProducto(producto.getCodigo()) == null) {
+            productos.add(producto);
             return true;
         }
         return false;
     }
 
     /**
-     * Elimina un producto del array de productos por su código.
+     * Elimina un producto del conjunto de productos por su código.
      * 
      * @param codigo El código del producto a eliminar.
-     * @return true si el producto se ha eliminado correctamente,
-     *         false si no se encuentra el producto.
+     * @return true si el producto se ha eliminado correctamente, false si no se
+     *         encuentra.
      */
     public static boolean eliminarProducto(String codigo) {
-        Producto pos = buscarProducto(codigo);
-        if (pos != -1) {
-            for (Producto i = pos; i < contador - 1; i++) {
-                productos = productos<i + 1>;
-            }
-            productos = null;
+        Producto producto = buscarProducto(codigo);
+        if (producto != null) {
+            productos.remove(producto);
             return true;
         }
         return false;
@@ -129,5 +113,11 @@ public class CProducto {
                 System.out.println("-------------------");
             }
         }
+    }
+
+    @Override
+    public int compareTo(Producto otro) {
+        // Comparar por código
+        return this.codigo.compareTo(otro.codigo);
     }
 }

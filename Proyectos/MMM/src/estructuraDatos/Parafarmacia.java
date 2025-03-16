@@ -49,6 +49,21 @@ public class Parafarmacia extends Producto {
     }
 
     /**
+     * Devuelve una representación en forma de cadena del producto de parafarmacia.
+     * 
+     * @return Cadena que representa el producto.
+     */
+    @Override
+    public String toString() {
+        return String.format("%-14s Categoria: %S Dosis Unidades: %d Descuento: %d",
+                super.toString(),
+                this.getCategoria(),
+                this.getDosisUnidades(),
+                this.getDescuento());
+
+    }
+
+    /**
      * Obtiene la categoría del producto.
      *
      * @return Categoría del producto.
@@ -106,20 +121,5 @@ public class Parafarmacia extends Producto {
         if (descuento > 0) {
             this.descuento = descuento;
         }
-    }
-
-    /**
-     * Devuelve una representación en forma de cadena del producto de parafarmacia.
-     * 
-     * @return Cadena que representa el producto.
-     */
-    @Override
-    public String toString() {
-        return String.format("%-14s Categoria: %S Dosis Unidades: %d Descuento: %d",
-                super.toString(),
-                this.getCategoria(),
-                this.getDosisUnidades(),
-                this.getDescuento());
-
     }
 }
