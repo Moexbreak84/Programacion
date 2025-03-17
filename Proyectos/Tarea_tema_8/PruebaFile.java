@@ -1,0 +1,71 @@
+package Proyectos.Tarea_tema_8;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class PruebaFile {
+    public static void main(String[] args) {
+        String texto = "Este es un ejemplo de uso de FileWriter en JAVA";
+        String fichero1 = "fichero1.txt";
+        String fichero2 = "fichero2.txt";
+        String fichero3 = "fichero3.txt";
+
+        // Escribir en fichero1.txt
+        try (FileWriter fileWriter = new FileWriter(fichero1)) {
+            fileWriter.write(texto);
+            System.out.println("Se ha escrito en el fichero1 correctamente");
+        } catch (IOException e) {
+            System.out.println("Ocurrió un error al escribir en el fichero1");
+            e.printStackTrace();
+        }
+
+        // Leer de fichero2.txt
+        try (FileReader fileReader = new FileReader(fichero2)) {
+            int caracter;
+            System.out.println("Contenido del archivo " + fichero2 + ":");
+            while ((caracter = fileReader.read()) != -1) {
+                System.out.print((char) caracter);
+            }
+        } catch (FileNotFoundException e) {
+            System.out.println("El fichero2 no fue encontrado");
+        } catch (IOException e) {
+            System.out.println("Ocurrió un error al leer el fichero2");
+            e.printStackTrace();
+        }
+
+        // Escribir en fichero3.txt
+        try (PrintWriter pw = new PrintWriter(new FileWriter(fichero3))) {
+            pw.print("Esto es un texto sin salto de línea");
+            pw.println(" NUEVO PALABRA");
+            pw.println("Esto es un texto con salto de línea");
+            pw.println(4.5455);
+            Arrays.stream(new int[]{1, 2, 3, 4, 10})
+                    .filter(n -> n > 2)
+                    .map(n -> n * 2)
+                    .forEach(n -> pw.println(n));
+        } catch (FileNotFoundException e) {
+            System.out.println("Fichero3 no encontrado");
+        } catch (IOException e) {
+            System.out.println("Problemas al escribir en el fichero3");
+        }
+
+        // Leer de archivo.txt
+        File archivo = new File("archivo.txt");
+        try (Scanner scn = new Scanner(archivo)) {
+            while (scn.hasNextLine()) {
+                String linea = scn.nextLine();
+                System.out.println(linea);
+            }
+        } catch (FileNotFoundException e) {
+            System.err.println("No se pudo encontrar el archivo");
+        }
+    }
+}
+
+
