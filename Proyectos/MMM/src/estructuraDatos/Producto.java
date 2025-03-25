@@ -1,16 +1,19 @@
 package estructuraDatos;
 
+import java.io.Serializable;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import interfaces.Calculable;
 
-public abstract class Producto implements Calculable {
+public abstract class Producto implements Calculable, Serializable, Comparable {
     private String codigo;
     private String nombre;
     private String descripcion;
     private int unidades;
     protected float precioCompra;
+    private static int posicion;
+
 
     /**
      * Constructor crea un objeto para Producto.
@@ -197,5 +200,13 @@ public abstract class Producto implements Calculable {
      */
     public void setPrecioCompra(float precioCompra) {
         this.precioCompra = precioCompra;
+    }
+    
+    public static int getPosicion() {
+        return posicion;
+    }
+
+    public static void setPosicion(int posicion) {
+        Producto.posicion = posicion;
     }
 }

@@ -122,4 +122,10 @@ public class Parafarmacia extends Producto {
             this.descuento = descuento;
         }
     }
+
+    @Override
+    public int compareTo(Object o) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'compareTo'");
+    }
 }

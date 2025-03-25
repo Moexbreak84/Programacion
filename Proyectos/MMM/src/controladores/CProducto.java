@@ -6,7 +6,7 @@ import java.util.TreeSet;
 
 import estructuraDatos.Producto;
 
-public class CProducto {
+public class CProducto implements Comparable {
     static TreeSet<Producto> productos = new TreeSet<Producto>();
     private static int contador;
 
@@ -49,9 +49,13 @@ public class CProducto {
      * @return Un array de productos que contiene todos los productos.
      */
     public static void obtenerTodosProductos() {
-        ArrayList<Producto> listaProductos = new ArrayList<>(productos);
-        listaProductos.sort(Comparator.reverseOrder());
-        System.out.println(listaProductos);
+        if (productos != null && !productos.isEmpty()) {
+            ArrayList<Producto> listaProductos = new ArrayList<>(productos);
+            listaProductos.sort(Comparator.reverseOrder());
+            System.out.println(listaProductos);
+        } else {
+            System.out.println("No hay productos disponibles.");
+        }
     }
 
     public Producto obtenerProducto(String codigo) {
@@ -65,11 +69,13 @@ public class CProducto {
      * @return El producto en la posición especificada,
      *         o null si la posición es inválida.
      */
+
     public static Producto obtenerProducto(int posicion) {
         if (posicion >= 0 && posicion < productos.size()) {
-            return productos.size().[posicion];
+            return productos.get(posicion); // Corrección aquí
         }
-        return null;
+        return null; // Retorna null si la posición es inválida
+    
     }
 
     /**
@@ -120,4 +126,9 @@ public class CProducto {
         // Comparar por código
         return this.codigo.compareTo(otro.codigo);
     }
+
+    @Override
+    public int compareTo(Object o) {
+        return Object.compareTo(otro.o);    }
+
 }

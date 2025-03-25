@@ -109,4 +109,10 @@ public class Medicamento extends Producto {
     public void setEfectosAdversos(String efectosAdversos) {
         this.efectosAdversos = efectosAdversos;
     }
+
+    @Override
+    public int compareTo(Object o) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'compareTo'");
+    }
 }

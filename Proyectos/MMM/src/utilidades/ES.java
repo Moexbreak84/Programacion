@@ -33,7 +33,7 @@ public class ES {
      * @return El número entero ingresado por el usuario.
      */
     public static int leerEntero(String texto) {
-        System.out.println(texto);
+        System.out.print(texto);
         return leerEntero();
     }
 
