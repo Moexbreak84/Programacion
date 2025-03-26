@@ -144,7 +144,8 @@ public class PruebaFile {
         }
     }
 
-    Grupo dam = null;try
+    Grupo dam = null;
+    try
     {
         FileInputStream fis = new FileInputStream("archivo.dat");
         ObjectInputStream in = new ObjectInputStream(fis);
