@@ -1,5 +1,5 @@
 module com.ejemplo_javafx {
-    requires javafx.controls;
+    requires transitive javafx.controls;
     requires javafx.fxml;
 
     opens com.ejemplo_javafx to javafx.fxml;
