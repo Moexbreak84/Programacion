@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Rectangle?>
 
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.juego.ControladorJuego" />
+<AnchorPane id="contenedor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.juego.ControladorJuego">
+   <children>
+      <Rectangle id="jugadorA" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="89.0" layoutX="14.0" layoutY="239.0" stroke="WHITE" strokeType="INSIDE" width="14.0" />
+      <Rectangle id="jugadorB" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="89.0" layoutX="572.0" layoutY="238.0" stroke="#fffdfd" strokeType="INSIDE" strokeWidth="0.0" width="14.0" />
+      <Circle id="bola" fill="WHITE" layoutX="300.0" layoutY="283.0" radius="7.0" stroke="BLACK" strokeType="INSIDE" />
+      <Label id="marcadorLabel" layoutX="275.0" layoutY="14.0" prefHeight="14.0" prefWidth="50.0" text="   0 - 0" textFill="WHITE" />
+   </children>
+</AnchorPane>
