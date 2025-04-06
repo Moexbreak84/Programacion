@@ -38,8 +38,7 @@ public class Medicamento extends Producto {
      */
     @Override
     public float CalcularPrecio() {
-        setPrecioCompra(precioUnidad / 100 * (4 + 27.9f));
-        return (float) getPrecioCompra();
+        return getPrecioCompra() * 1.279f * 1.04f; // Precio con ganancia y IVA
     }
 
     /**
@@ -51,11 +50,8 @@ public class Medicamento extends Producto {
      */
     @Override
     public String toString() {
-        return String.format("%-14s Tipo Medicamento: %s Como tomar: %s efectos Adversos: %s",
-                super.toString(),
-                this.getTipoMedicamento(),
-                this.getComoTomar(),
-                this.getEfectosAdversos());
+        return super.toString() + String.format("\nTipo: %s\nCómo tomar: %s\nEfectos adversos: %s",
+                tipoMedicamento, comoTomar, efectosAdversos);
     }
 
     /**

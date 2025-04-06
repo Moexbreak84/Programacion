@@ -1,70 +1,68 @@
 package controladores;
 
-import estructuraDatos.*;
-import enumerados.Categoria;
-import enumerados.TipoMedicamento;
 import utilidades.ES;
 
+/**
+ * Clase Principal que contiene el método main para ejecutar la aplicación.
+ * Esta clase es responsable de interactuar con el usuario y gestionar
+ * las operaciones relacionadas con los productos a través de la clase
+ * CProducto.
+ */
 public class Principal {
-    /**
-     * @param args
-     */
     public static void main(String[] args) {
-        boolean salir = false;
+        // Instancia de CProducto para gestionar productos
+        CProducto cProducto = new CProducto();
+        
+        // Cargar datos al iniciar la aplicación
+        cProducto.cargarDatos();
 
+        boolean salir = false; // Variable para controlar el bucle del menú
         while (!salir) {
-            System.out.println("1. Agregar Medicamento");
-            System.out.println("2. Agregar Parafarmacia");
-            System.out.println("3. Mostrar Productos");
-            System.out.println("4. Salir");
+            // Mostrar el menú de opciones al usuario
+            System.out.println("1. Agregar Producto");
+            System.out.println("2. Mostrar Productos");
+            System.out.println("3. Modificar Producto");
+            System.out.println("4. Eliminar Producto");
+            System.out.println("5. Guardar Datos");
+            System.out.println("6. Salir");
+            
+            // Leer la opción seleccionada por el usuario
             int opcion = ES.leerEntero("Seleccione una opción: ");
-            ES.limpiarTeclado();
 
+            // Procesar la opción seleccionada
             switch (opcion) {
                 case 1:
-                    String codigo = ES.leerString("Ingrese el código: ");
-                    String nombre = ES.leerString("Ingrese el nombre: ");
-                    String descripcion = ES.leerString("Ingrese la descripción: ");
-                    double precio = ES.leerDouble("Ingrese el precio: ");
-                    int unidades = ES.leerEntero("Ingrese las unidades: ");
-                    TipoMedicamento tipoMedicamento = TipoMedicamento.ANALGESICOS;
-                    ES.limpiarTeclado();
-                    String comoTomar = ES.leerString("Ingrese cómo tomar: ");
-                    String efectosAdversos = ES.leerString("Ingrese efectos adversos: ");
-                    Medicamento medicamento = new Medicamento(codigo, nombre, descripcion, precio, unidades,
-                            tipoMedicamento, comoTomar, efectosAdversos);
-                    if (CProducto.agregarProducto(medicamento)) {
-                        System.out.println("Medicamento agregado exitosamente.");
-                    } else {
-                        System.out.println("Error al agregar el medicamento.");
-                    }
+                    // Lógica para agregar producto
+                    // Aquí se debe implementar la lógica para solicitar los datos del producto
+                    // y llamar a cProducto.agregarProducto(producto);
                     break;
                 case 2:
-                    String codigoP = ES.leerString("Ingrese el código: ");
-                    String nombreP = ES.leerString("Ingrese el nombre: ");
-                    String descripcionP = ES.leerString("Ingrese la descripción: ");
-                    double precioCompraP = ES.leerDouble("Ingrese el precio: ");
-                    int unidadesP = ES.leerEntero("Ingrese las unidades: ");
-                    Categoria categoria = Categoria.BOTIQUIN;
-                    int dosisUnidades = ES.leerEntero("Ingrese dosis unidades: ");
-                    float descuento = ES.leerFloat("Ingrese descuento: ");
-                    Parafarmacia parafarmacia = new Parafarmacia(codigoP, nombreP, descripcionP, unidadesP, unidadesP, categoria, dosisUnidades, descuento);
-                    if (CProducto.agregarProducto(parafarmacia)) {
-                        System.out.println("Parafarmacia agregada exitosamente.");
-                    } else {
-                        System.out.println("Error al agregar la parafarmacia.");
-                    }
+                    // Lógica para mostrar productos
+                    // Aquí se debe implementar la lógica para mostrar todos los productos
+                    // utilizando cProducto.obtenerTodosProductos();
                     break;
                 case 3:
-                    CProducto.mostrarProductos();
+                    // Lógica para modificar producto
+                    // Aquí se debe implementar la lógica para solicitar el código del producto
+                    // y los nuevos datos, luego llamar a cProducto.modificarProducto(codigo, nuevoNombre, nuevaDescripcion, nuevoPrecio);
                     break;
                 case 4:
-                    salir = true;
+                    // Lógica para eliminar producto
+                    // Aquí se debe implementar la lógica para solicitar el código del producto
+                    // y llamar a cProducto.eliminarProducto(codigo);
+                    break;
+                case 5:
+                    // Guardar datos en el archivo
+                    cProducto.guardarDatos(true); // Guardar datos
+                    break;
+                case 6:
+                    // Guardar datos antes de salir
+                    cProducto.guardarDatos(true); // Guardar datos antes de salir
+                    salir = true; // Cambiar la variable para salir del bucle
                     break;
                 default:
+                    // Mensaje de error si la opción no es válida
                     System.out.println("Opción no válida.");
             }
-
         }
     }
-}

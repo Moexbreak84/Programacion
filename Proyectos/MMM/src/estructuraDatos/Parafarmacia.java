@@ -55,12 +55,8 @@ public class Parafarmacia extends Producto {
      */
     @Override
     public String toString() {
-        return String.format("%-14s Categoria: %S Dosis Unidades: %d Descuento: %d",
-                super.toString(),
-                this.getCategoria(),
-                this.getDosisUnidades(),
-                this.getDescuento());
-
+        return super.toString() + String.format("\nCategoría: %s\nDosis Unidades: %d\nDescuento: %.2f%%",
+                categoria, dosisUnidades, descuento);
     }
 
     /**
