@@ -14,7 +14,6 @@ public abstract class Producto implements Calculable, Serializable, Comparable {
     protected float precioCompra;
     private static int posicion;
 
-
     /**
      * Constructor crea un objeto para Producto.
      * 
@@ -45,10 +44,8 @@ public abstract class Producto implements Calculable, Serializable, Comparable {
      * @param codigo El código que queremos validar.
      * @return true si el código es válido, false si no.
      */
-    private boolean validarCodigo(String codigo) {
-        Pattern p = Pattern.compile("^[A-Z]{2}[0-9]{6}$");
-        Matcher m = p.matcher(codigo);
-        return m.matches();
+    public boolean validarCodigo(String codigo) {
+        return codigo.matches("^[A-Z]{2}[0-9]{6}$");
     }
 
     /**
@@ -201,7 +198,7 @@ public abstract class Producto implements Calculable, Serializable, Comparable {
     public void setPrecioCompra(float precioCompra) {
         this.precioCompra = precioCompra;
     }
-    
+
     public static int getPosicion() {
         return posicion;
     }
