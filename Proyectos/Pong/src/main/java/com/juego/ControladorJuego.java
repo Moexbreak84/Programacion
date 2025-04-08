@@ -1,3 +1,4 @@
+
 package com.juego;
 
 import javafx.animation.AnimationTimer;
@@ -70,14 +71,11 @@ public class ControladorJuego {
         }else if(bola.getCenterY() >= 600){
             
             puntoJ1++;
-            reiniciarBola();
-
-            
+            reiniciarBola();  
         }
     }
 
     private void reiniciarBola() {
-        // To do
         // Pausa antes de reiniciar el movimiento
         gameLoop.stop();
         PauseTransition pause = new PauseTransition(Duration.seconds(2));
@@ -91,17 +89,16 @@ public class ControladorJuego {
     }
 
     private void teclaPresionada(KeyCode tecla) {
-        // To do
         if(tecla == KeyCode.W){
             jugadorA.setLayoutY(jugadorA.getLayoutY()-10 );
         }else if(tecla == KeyCode.S){
             jugadorA.setLayoutY(jugadorA.getLayoutY()+10 );
             
         }
-        if(tecla == KeyCode.W){
-            jugadorB.setLayoutY(jugadorA.getLayoutY()-10 );
-        }else if(tecla == KeyCode.S){
-            jugadorB.setLayoutY(jugadorA.getLayoutY()+10 );
+        if(tecla == KeyCode.UP){
+            jugadorB.setLayoutY(jugadorB.getLayoutY()-10 );
+        }else if(tecla == KeyCode.DOWN){
+            jugadorB.setLayoutY(jugadorB.getLayoutY()+10 );
             
         }
 
