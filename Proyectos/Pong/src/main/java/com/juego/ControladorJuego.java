@@ -31,7 +31,7 @@ public class ControladorJuego {
     int puntoJ2 = 0;
 
     public void initialize() {
-        bola.setLayoutX(100);
+        //bola.setLayoutX(100);
         PauseTransition pause = new PauseTransition(Duration.seconds(2));
         pause.setOnFinished(event -> startGame());
         pause.play();
@@ -89,6 +89,10 @@ public class ControladorJuego {
     }
 
     private void teclaPresionada(KeyCode tecla) {
+        // Definir los límites de movimiento
+    double limiteSuperior = 0; // Por ejemplo, el borde superior de la ventana
+    double limiteInferior = 600; // Por ejemplo, el borde inferior de la ventana (ajusta según tu diseño)
+
         if(tecla == KeyCode.W){
             jugadorA.setLayoutY(jugadorA.getLayoutY()-10 );
         }else if(tecla == KeyCode.S){
