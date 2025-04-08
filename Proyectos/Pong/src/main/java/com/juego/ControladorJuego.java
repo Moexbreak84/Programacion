@@ -30,6 +30,7 @@ public class ControladorJuego {
     int puntoJ2 = 0;
 
     public void initialize() {
+        bola.setLayoutX(100);
         PauseTransition pause = new PauseTransition(Duration.seconds(2));
         pause.setOnFinished(event -> startGame());
         pause.play();
@@ -41,27 +42,24 @@ public class ControladorJuego {
             public void handle(long now) {
                 movimientoBola();
                 comprobarColisiones();
-                actualizarMarcador();
-            }
-
-            private void actualizarMarcador() {
-                // TODO Auto-generated method stub
-                throw new UnsupportedOperationException("Unimplemented method 'actualizarMarcador'");
             }
         };
         gameLoop.start();
     }
 
     private void movimientoBola() {
-        // To do
         bola.setCenterX(bola.getCenterX() + bolaVelocidadX);
         bola.setCenterY(bola.getCenterY() + bolaVelocidadY);
     }
 
     private void comprobarColisiones() {
         // Revote contra las paredes arriba y abajo
-        if (bola.getCenterY() <=0 || bola.getCenterY() >=600){
+        if (bola.getCenterY() <=-300 || bola.getCenterY() >=300){
             bolaVelocidadY *= -1;
+        }
+
+        if(bola.getBoundsInParent().intersects(jugadorA.getBoundsInParent()) || bola.getBoundsInParent().intersects(jugadorB.getBoundsInParent())){
+            bolaVelocidadX *= -1;
         }
 
         // Puntuacion
@@ -89,10 +87,24 @@ public class ControladorJuego {
 
     @FXML
     private void mover(KeyEvent event) {
-        // To do
+            teclaPresionada(event.getCode()); 
     }
 
     private void teclaPresionada(KeyCode tecla) {
         // To do
+        if(tecla == KeyCode.W){
+            jugadorA.setLayoutY(jugadorA.getLayoutY()-10 );
+        }else if(tecla == KeyCode.S){
+            jugadorA.setLayoutY(jugadorA.getLayoutY()+10 );
+            
+        }
+        if(tecla == KeyCode.W){
+            jugadorB.setLayoutY(jugadorA.getLayoutY()-10 );
+        }else if(tecla == KeyCode.S){
+            jugadorB.setLayoutY(jugadorA.getLayoutY()+10 );
+            
+        }
+
     }
+
 }
