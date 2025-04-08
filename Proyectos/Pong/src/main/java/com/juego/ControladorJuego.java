@@ -26,6 +26,8 @@ public class ControladorJuego {
     private AnimationTimer gameLoop;
     private int bolaVelocidadY = 3;
     private int bolaVelocidadX = 3;
+    int puntoJ1 = 0;
+    int puntoJ2 = 0;
 
     public void initialize() {
         PauseTransition pause = new PauseTransition(Duration.seconds(2));
@@ -39,6 +41,12 @@ public class ControladorJuego {
             public void handle(long now) {
                 movimientoBola();
                 comprobarColisiones();
+                actualizarMarcador();
+            }
+
+            private void actualizarMarcador() {
+                // TODO Auto-generated method stub
+                throw new UnsupportedOperationException("Unimplemented method 'actualizarMarcador'");
             }
         };
         gameLoop.start();
@@ -51,16 +59,22 @@ public class ControladorJuego {
     }
 
     private void comprobarColisiones() {
-        // To do
-        if ()
+        // Revote contra las paredes arriba y abajo
+        if (bola.getCenterY() <=0 || bola.getCenterY() >=600){
+            bolaVelocidadY *= -1;
+        }
 
         // Puntuacion
         if(bola.getCenterX() <=0){
-            puntoJ2*++;
-            resetBola();
+            
+            puntoJ2++;
+            reiniciarBola();
         }else if(bola.getCenterY() >= 600){
-            puntoJ1*++;
-            resetBola();
+            
+            puntoJ1++;
+            reiniciarBola();
+
+            
         }
     }
 
