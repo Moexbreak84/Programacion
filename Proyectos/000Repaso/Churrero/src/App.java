@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class App {
+public class App extends Object {
     static Scanner sc = new Scanner(System.in);
 
     public static void main(String[] args) throws Exception {
@@ -19,4 +19,9 @@ public class App {
             System.out.println("El numero del array " + numeros.get(i));
         }
     }
+
+    @Override
+    public String toString() {
+        return "App []";
+    }   
 }
